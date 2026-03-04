@@ -1,21 +1,25 @@
+<div align="center">
+
 # ⚡ Quarkus Native vs JVM vs Spring Boot
 
-> One command. Three runtimes. Real numbers.
+**One command. Three runtimes. Real numbers.**
 
-This repository runs **the same REST API** on three Java runtime configurations and benchmarks them head-to-head. The results make a compelling case for what GraalVM native images mean for cloud-native Java.
+[![Quarkus](https://img.shields.io/badge/Quarkus-3.17.7-4695EB?style=flat-square&logo=quarkus&logoColor=white)](https://quarkus.io)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.3-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-21_LTS-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org)
+[![Gradle](https://img.shields.io/badge/Gradle-8.14-02303A?style=flat-square&logo=gradle&logoColor=white)](https://gradle.org)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat-square)](LICENSE)
+[![Containers](https://img.shields.io/badge/Containers-Podman_%7C_Docker-892CA0?style=flat-square&logo=podman&logoColor=white)](https://podman.io)
 
----
+<br/>
 
-## The Numbers
+<img src="docs/benchmark-chart.svg" alt="Benchmark Results" width="900"/>
 
-| Metric | Spring Boot JVM | Quarkus JVM | Quarkus Native |
-|:-------|:----------------|:------------|:---------------|
-| **Startup Time** | ~2,800 ms | ~1,150 ms | **~49 ms** ⚡ |
-| **Memory Usage** | ~350 MB | ~277 MB | **~70 MB** 💾 |
-| **Docker Image** | ~250 MB | ~200 MB | **~70 MB** 📦 |
-| **Avg Latency** | ~2.4 ms | ~2.2 ms | ~2.1 ms |
+<br/>
 
 > Quarkus Native starts **57× faster** and uses **80% less memory** than Spring Boot JVM.
+
+</div>
 
 ---
 
