@@ -1,0 +1,28 @@
+####
+# JVM build — fast to build, higher memory, slower to start.
+#
+# Build the jar first:
+#   ./gradlew :quarkus-app:build
+#
+# Then build this image (run from project root):
+#   podman build -f quarkus-app/src/main/docker/Dockerfile.jvm \
+#                -t demo-quarkus-jvm quarkus-app/
+#
+# Run:
+#   podman run -p 8082:8080 demo-quarkus-jvm
+###
+FROM eclipse-temurin:21-jre-jammy
+
+ENV LANGUAGE='en_US:en'
+
+WORKDIR /work/
+
+COPY build/quarkus-app/lib/ /work/lib/
+COPY build/quarkus-app/*.jar /work/
+COPY build/quarkus-app/app/ /work/app/
+COPY build/quarkus-app/quarkus/ /work/quarkus/
+
+EXPOSE 8080
+USER 185
+
+ENTRYPOINT ["java", "-jar", "quarkus-run.jar"]

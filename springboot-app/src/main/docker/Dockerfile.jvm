@@ -1,0 +1,22 @@
+####
+# Spring Boot JVM build — the industry baseline.
+#
+# Build the jar first:
+#   ./gradlew :springboot-app:build
+#
+# Then build this image (run from project root):
+#   podman build -f springboot-app/src/main/docker/Dockerfile.jvm \
+#                -t demo-springboot-jvm springboot-app/
+#
+# Run:
+#   podman run -p 8083:8080 demo-springboot-jvm
+###
+FROM eclipse-temurin:21-jre-jammy
+
+WORKDIR /app
+
+COPY build/libs/app.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
