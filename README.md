@@ -4,9 +4,9 @@
 
 **One command. Three runtimes. Real numbers.**
 
-[![Quarkus](https://img.shields.io/badge/Quarkus-3.17.7-4695EB?style=flat-square&logo=quarkus&logoColor=white)](https://quarkus.io)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.3-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-21_LTS-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org)
+[![Quarkus](https://img.shields.io/badge/Quarkus-3.31.2-4695EB?style=flat-square&logo=quarkus&logoColor=white)](https://quarkus.io)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.3-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-25_LTS-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org)
 [![Gradle](https://img.shields.io/badge/Gradle-8.14-02303A?style=flat-square&logo=gradle&logoColor=white)](https://gradle.org)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat-square)](LICENSE)
 [![Containers](https://img.shields.io/badge/Containers-Podman_%7C_Docker-892CA0?style=flat-square&logo=podman&logoColor=white)](https://podman.io)
@@ -25,7 +25,7 @@
 
 ## Quick Start
 
-**Prerequisites:** Podman or Docker, Java 21+, ~10 minutes for the first build.
+**Prerequisites:** Podman or Docker, Java 25+, ~10 minutes for the first build.
 
 ```bash
 git clone https://github.com/Yats11/quarkus-graalvm.git
@@ -206,9 +206,9 @@ quarkus-graalvm/
 
 | | Version |
 |--|---------|
-| Quarkus | 3.17.7 |
-| Spring Boot | 3.4.3 |
-| Java | 21 (LTS) |
+| Quarkus | 3.31.2 |
+| Spring Boot | 4.0.3 |
+| Java | 25 (LTS) |
 | Build | Gradle (Kotlin DSL) |
 | Containers | Podman / Docker |
 | GraalVM | Mandrel (via container) |
