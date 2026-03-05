@@ -1,0 +1,6 @@
+.gradle/
+src/
+gradle/
+*.kts
+*.md
+*.properties
