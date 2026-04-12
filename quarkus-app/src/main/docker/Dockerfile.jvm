@@ -25,4 +25,7 @@ COPY build/quarkus-app/quarkus/ /work/quarkus/
 EXPOSE 8080
 USER 185
 
+HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:8080/api/health || exit 1
+
 ENTRYPOINT ["java", "-jar", "quarkus-run.jar"]

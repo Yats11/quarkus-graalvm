@@ -11,6 +11,11 @@ import java.util.Map;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TextAnalysisResource {
 
+    private static final boolean IS_NATIVE =
+            System.getProperty("org.graalvm.nativeimage.imagecode") != null;
+
+    private static final int MAX_TEXT_LENGTH = 100_000;
+
     @Inject
     TextAnalysisService service;
 
@@ -18,16 +23,18 @@ public class TextAnalysisResource {
     @Path("/analyze")
     public TextAnalysisResult analyze(TextAnalysisRequest request) {
         String text = (request != null && request.text != null) ? request.text : "";
+        if (text.length() > MAX_TEXT_LENGTH) {
+            throw new BadRequestException("Text exceeds maximum allowed length of " + MAX_TEXT_LENGTH + " characters");
+        }
         return service.analyze(text);
     }
 
     @GET
     @Path("/health")
     public Map<String, Object> health() {
-        boolean isNative = System.getProperty("org.graalvm.nativeimage.imagecode") != null;
         return Map.of(
                 "status", "UP",
-                "mode", isNative ? "native" : "JVM",
+                "mode", IS_NATIVE ? "native" : "JVM",
                 "framework", "Quarkus"
         );
     }
@@ -35,10 +42,9 @@ public class TextAnalysisResource {
     @GET
     @Path("/info")
     public Map<String, Object> info() {
-        boolean isNative = System.getProperty("org.graalvm.nativeimage.imagecode") != null;
         Runtime rt = Runtime.getRuntime();
         return Map.of(
-                "mode", isNative ? "native" : "JVM",
+                "mode", IS_NATIVE ? "native" : "JVM",
                 "framework", "Quarkus",
                 "javaVersion", System.getProperty("java.version", "unknown"),
                 "availableProcessors", rt.availableProcessors(),
